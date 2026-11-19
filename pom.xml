@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * Copyright (c) 2022 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2022 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.unikue.forkextension.pinyin4j</groupId>
+    <groupId>com.jiovan.revival</groupId>
     <artifactId>pinyin4j</artifactId>
-    <version>2.7.3</version>
+    <version>4.0.0</version>
 
     <name>${project.artifactId}</name>
-    <description>Fork Extension of Pinyin4j</description>
-    <url>https://github.com/unikueltd/pinyin4j-pinyin4j</url>
+    <description>Revival of Pinyin4j</description>
+    <url>https://github.com/jiovan-labs/pinyin4j</url>
     <inceptionYear>2022</inceptionYear>
 
     <organization>
-        <name>Unikue Ltd</name>
-        <url>https://unikue.cn</url>
+        <name>Jiovan Ltd</name>
+        <url>https://jiovan.com</url>
     </organization>
 
     <properties>
@@ -47,7 +47,7 @@
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
-        <jakarta-annotation.version>2.1.1</jakarta-annotation.version>
+        <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
         <lombok.version>1.18.46</lombok.version>
         <slf4j.version>2.0.18</slf4j.version>
 
@@ -55,15 +55,15 @@
         <jpinyin.version>1.1.8</jpinyin.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
 
-        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-install-plugin.version>3.1.4</maven-install-plugin.version>
-        <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>
-        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+        <maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
         <maven-shade-plugin.version>3.6.2</maven-shade-plugin.version>
-        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+        <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
-        <central-publishing-maven-plugin.version>0.11.0</central-publishing-maven-plugin.version>
+        <central-publishing-maven-plugin.version>0.12.0</central-publishing-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -210,14 +210,14 @@
                                     </includes>
                                 </filter>
                                 <filter>
-                                    <artifact>cn.unikue.forkextension.pinyin4j:pinyin4j</artifact>
+                                    <artifact>com.jiovan.revival:pinyin4j</artifact>
                                     <includes>
                                         <include>net/sourceforge/pinyin4j/ChineseToPinyinResource*</include>
                                         <include>net/sourceforge/pinyin4j/GwoyeuRomatzyhResource*</include>
                                         <include>net/sourceforge/pinyin4j/PinyinRomanizationResource*</include>
                                         <include>net/sourceforge/pinyin4j/PinyinResource.class</include>
                                         <include>META-INF/data/**</include>
-                                        <include>META-INF/maven/cn.unikue.forkextension.pinyin4j/**</include>
+                                        <include>META-INF/maven/com.jiovan.revival/**</include>
                                         <include>META-INF/*.MF</include>
                                         <include>META-INF/*.txt</include>
                                     </includes>
@@ -225,8 +225,16 @@
                             </filters>
                             <relocations>
                                 <relocation>
+                                    <pattern>com.hp.hpl.sparta</pattern>
+                                    <shadedPattern>com.jiovan.revival.sparta</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>net.sourceforge.pinyin4j</pattern>
+                                    <shadedPattern>com.jiovan.revival.pinyin4j</shadedPattern>
+                                </relocation>
+                                <relocation>
                                     <pattern>com.github.stuxuhai.jpinyin</pattern>
-                                    <shadedPattern>net.sourceforge.pinyin4j</shadedPattern>
+                                    <shadedPattern>com.jiovan.revival.pinyin4j</shadedPattern>
                                     <includes>
                                         <include>com.github.stuxuhai.jpinyin.ChineseHelper</include>
                                         <include>com.github.stuxuhai.jpinyin.PinyinResource</include>
@@ -281,14 +289,14 @@
     </build>
 
     <scm>
-        <url>https://github.com/unikueltd/pinyin4j-pinyin4j</url>
-        <connection>scm:git:https://github.com/unikueltd/pinyin4j-pinyin4j.git</connection>
-        <developerConnection>scm:git:https://github.com/unikueltd/pinyin4j-pinyin4j.git</developerConnection>
+        <url>https://github.com/jiovan-labs/pinyin4j</url>
+        <connection>scm:git:https://github.com/jiovan-labs/pinyin4j.git</connection>
+        <developerConnection>scm:git:https://github.com/jiovan-labs/pinyin4j.git</developerConnection>
     </scm>
 
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/unikueltd/pinyin4j-pinyin4j/issues</url>
+        <url>https://github.com/jiovan-labs/pinyin4j/issues</url>
     </issueManagement>
 
     <licenses>
@@ -301,7 +309,7 @@
 
     <developers>
         <developer>
-            <name>Unikue Ltd</name>
+            <name>Jiovan Ltd</name>
         </developer>
         <developer>
             <id>davidhsing</id>
@@ -313,8 +321,8 @@
             <roles>
                 <role>developer</role>
             </roles>
-            <organization>Unikue Ltd</organization>
-            <organizationUrl>https://unikue.cn</organizationUrl>
+            <organization>Jiovan Ltd</organization>
+            <organizationUrl>https://jiovan.com</organizationUrl>
             <timezone>China/Beijing</timezone>
         </developer>
     </developers>
